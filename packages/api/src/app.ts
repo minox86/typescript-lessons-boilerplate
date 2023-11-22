@@ -1,10 +1,9 @@
 import { model } from '@mondrian-framework/model'
 import { functions, module } from '@mondrian-framework/module'
-import { graphql } from '@mondrian-framework/graphql'
-import { serve as graphqlServe } from '@mondrian-framework/graphql-yoga'
-import { rest } from '@mondrian-framework/rest'
-import { serve as restServe } from '@mondrian-framework/rest-fastify'
+import { graphql, serve as graphqlServe } from '@mondrian-framework/graphql-yoga'
+import { rest, serve as restServe } from '@mondrian-framework/rest-fastify'
 import { fastify } from 'fastify'
+import cors from '@fastify/cors'
 
 let value = 0
 const increase = functions.build({
@@ -40,7 +39,7 @@ const restAPI = rest.build({
     getValue: { method: 'get', path: '/value' },
     increase: { method: 'post', path: '/inc' },
   },
-  options: { introspection: true },
+  options: { introspection: { endpoint: 'http://localhost:4100' } },
 })
 
 const graphqlAPI = graphql.build({
@@ -71,6 +70,7 @@ graphqlServe({
 })
 
 server
+  .register(cors, { origin: '*' })
   .listen({ port: 4100 })
   .then((address) => {
     console.log(`Server started at ${address}/openapi`)

@@ -22,7 +22,8 @@
   "parserOptions": {
     "project": [
       "./tsconfig.json",
-      "./packages/api/tsconfig.json"
+      "./packages/api/tsconfig.json",
+      "./packages/webapp/tsconfig.json"
     ]
   },
   "ignorePatterns": [

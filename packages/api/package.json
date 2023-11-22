@@ -18,10 +18,11 @@
     "ts-jest": "29.1.1"
   },
   "dependencies": {
-    "@mondrian-framework/model": "2.0.5",
-    "@mondrian-framework/module": "2.0.5",
-    "@mondrian-framework/rest-fastify": "2.0.5",
-    "@mondrian-framework/graphql-yoga": "2.0.5",
-    "jsonwebtoken": "9.0.2"
+    "@mondrian-framework/model": "2.0.6",
+    "@mondrian-framework/module": "2.0.6",
+    "@mondrian-framework/rest-fastify": "2.0.6",
+    "@mondrian-framework/graphql-yoga": "2.0.6",
+    "jsonwebtoken": "9.0.2",
+    "@fastify/cors": "8.4.1"
   }
 }

@@ -17,7 +17,7 @@
     "typescript": "5.3.2"
   },
   "workspaces": [
-    "packages/api"
+    "packages/api", "packages/webapp"
   ],
   "engines": {
     "node": ">=20.0.0"

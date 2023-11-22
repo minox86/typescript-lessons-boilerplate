@@ -13,14 +13,25 @@
     "composite": true,
     "skipLibCheck": true,
     "paths": {
-      "@example/api": ["./packages/api"]
+      "@example/api": [
+        "./packages/api"
+      ],
+      "@example/webapp": [
+        "./packages/webapp"
+      ]
     }
   },
   "files": [],
   "references": [
     {
       "path": "packages/api"
+    },
+    {
+      "path": "packages/webapp"
     }
   ],
-  "exclude": ["**/node_modules", "build"]
+  "exclude": [
+    "**/node_modules",
+    "build"
+  ]
 }

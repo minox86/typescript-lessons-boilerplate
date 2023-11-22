@@ -1,0 +1,40 @@
+{
+  "name": "@example/webapp",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "generate-openapi": "openapi --input http://localhost:4100/openapi/v1/schema.json --output ./src/openapi/generated",
+    "generate-graphql": "graphql-codegen --config ./src/graphql/codegen.ts",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "@types/react": "18.2.37",
+    "@types/react-dom": "18.2.15",
+    "graphql-request": "6.1.0"
+  },
+  "devDependencies": {
+    "openapi-typescript-codegen": "0.25.0",
+    "@graphql-codegen/cli": "5.0.0",
+    "@graphql-codegen/typescript": "4.0.1",
+    "@graphql-codegen/typescript-operations": "4.0.1",
+    "@graphql-codegen/typescript-graphql-request": "6.0.1",
+    "react-scripts": "latest"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}
