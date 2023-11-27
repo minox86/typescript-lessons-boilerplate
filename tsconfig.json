@@ -1,14 +1,12 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
     "module": "commonjs",
-    "target": "esnext",
-    "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "noErrorTruncation": false,
     "sourceMap": true,
     "declaration": true,
+    "declarationMap": true,
     "incremental": true,
     "composite": true,
     "skipLibCheck": true,
