@@ -1,11 +1,10 @@
 import { module } from '@mondrian-framework/module'
-import increase from './functions/increase'
-import getValue from './functions/get-value'
+import functions from './functions'
 
 export default module.build({
-  name: 'Simple App',
+  name: 'Counter',
   version: '0.1.0',
-  functions: { increase, getValue },
+  functions,
   async context() {
     return {}
   },

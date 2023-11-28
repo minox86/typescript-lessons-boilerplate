@@ -1,11 +1,9 @@
 import { sdk } from '@mondrian-framework/module'
 import counterModule from '../src/modules/counter'
 
-const client = sdk.withMetadata<{ ip?: string; authorization?: string }>().build({
+const client = sdk.build({
   module: counterModule,
-  context: async ({ metadata }) => {
-    return { ip: metadata?.ip ?? 'local', authorization: metadata?.authorization }
-  },
+  context: async () => {},
 })
 
 test('increase function test', async () => {
