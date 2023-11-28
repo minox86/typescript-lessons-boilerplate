@@ -1,11 +1,11 @@
 import { model } from '@mondrian-framework/model'
 import { functions } from '@mondrian-framework/module'
-import { dataSource } from '../data-source'
+import { DataSource } from '../data-source'
 
-export default functions.build({
+export default functions.withContext<{ datasource: DataSource }>().build({
   input: model.never(),
   output: model.object({ value: model.integer({ minimum: 0 }) }),
-  async body() {
-    return { value: dataSource.value }
+  async body({ context: { datasource } }) {
+    return { value: datasource.getValue() }
   },
 })
