@@ -5,9 +5,9 @@
     "outDir": "build",
   },
   "include": [
-    "vite.config.ts",
     "src",
-    "tests"
+    "tests",
+    "jest.config.ts"
   ],
   "exclude": [
     "build",
