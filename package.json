@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start-api": "npm run start --workspace=@example/api",
+    "start-webapp": "npm run start --workspace=@example/webapp",
     "build": "npm run build --workspaces --if-present",
     "test": "npm run test --workspaces --if-present",
     "pretty": "prettier --write \"./**/*.ts\""
