@@ -27,7 +27,6 @@
     ]
   },
   "ignorePatterns": [
-    "packages/migration/**/*.js",
     "**/*.generated.ts",
     "**/generated"
   ]
