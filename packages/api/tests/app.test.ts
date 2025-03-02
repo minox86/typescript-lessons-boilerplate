@@ -1,13 +1,9 @@
-import { sdk } from '@mondrian-framework/module'
-import { buildCounterModule } from '../src/modules/counter/module'
-import { DataSource } from '../src/modules/counter/data-source'
+import { client as clientBuilder } from '@mondrian-framework/module'
+import { counterModule } from '../src/modules/counter/module'
 
-const datasource = new DataSource()
-const testModule = buildCounterModule(datasource)
-
-const client = sdk.build({
-  module: testModule,
-  context: async () => {},
+const client = clientBuilder.build({
+  module: counterModule,
+  context: async () => ({}),
 })
 
 test('increase function test', async () => {

@@ -1,4 +1,4 @@
-import { graphql, serve } from '@mondrian-framework/graphql-yoga'
+import { graphql, serveWithFastify } from '@mondrian-framework/graphql-yoga'
 import { FastifyInstance } from 'fastify'
 import { CounterModule } from '../modules/counter/module'
 
@@ -9,14 +9,12 @@ export const serveGraphQL = (server: FastifyInstance, module: CounterModule) => 
       getValue: { type: 'query', name: 'value' },
       increase: { type: 'mutation' },
     },
-    options: { introspection: true },
   })
 
-  serve({
+  serveWithFastify({
     server,
     api: graphqlAPI,
-    async context() {
-      return {}
-    },
+    options: { introspection: true },
+    context: async () => ({}),
   })
 }

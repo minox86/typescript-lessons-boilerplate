@@ -2,16 +2,12 @@ import { fastify } from 'fastify'
 import cors from '@fastify/cors'
 import { serveRest } from './runtimes/rest'
 import { serveGraphQL } from './runtimes/graphql'
-import { buildCounterModule } from './modules/counter/module'
-import { DataSource } from './modules/counter/data-source'
+import { counterModule } from './modules/counter/module'
 
 const server = fastify()
 
-const datasource = new DataSource()
-const module = buildCounterModule(datasource)
-
-serveRest(server, module)
-serveGraphQL(server, module)
+serveRest(server, counterModule)
+serveGraphQL(server, counterModule)
 
 server
   .register(cors, { origin: '*' })

@@ -1,11 +1,18 @@
-import { model } from '@mondrian-framework/model'
+import { model, result } from '@mondrian-framework/model'
 import { functions } from '@mondrian-framework/module'
-import { DataSource } from '../data-source'
+import { datasourceProvider } from '../data-source'
 
-export default functions.withContext<{ datasource: DataSource }>().build({
-  input: model.never(),
-  output: model.object({ value: model.integer({ minimum: 0 }) }),
-  async body({ context: { datasource } }) {
-    return { value: datasource.getValue() }
-  },
-})
+export default functions
+  .define({
+    output: model.object({ value: model.integer({ minimum: 0 }) }),
+  })
+  .use({
+    providers: {
+      datasource: datasourceProvider,
+    },
+  })
+  .implement({
+    async body({ datasource }) {
+      return result.ok({ value: datasource.getValue() })
+    },
+  })
